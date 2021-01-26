@@ -1,0 +1,58 @@
+---
+title: "CodeBook"
+author: "jrblankenship"
+date: "1/26/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+The run_analysis.R script was designed to organize data from the Human Activity Recognition Using Smartphones Dataset, from the Smartlab laboratory in Genoa, Italy. The zipped data for this analysis was pulled from the following link <https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip>. 
+
+Data was collected from 30 volunteers, ages 19-48 wearing a Samsung Galaxy S II smartphone while walking, walking upstairs, walking downstairs, sitting, standing, or laying. The accelerometer and gyroscope of the phone were used to collect axial linear acceleration and axial angular velocity in the X, Y, and Z directions. 21 of the participants were selected to generate the training set and 9 were selected to be recorded for the test data.
+
+This data includes:
+a tidy dataset
+The script (run_analysis.R)
+a README file
+CodeBook.rmd
+
+When run with the UCI HAR Dataset folder as the working directory, run_analysis.R produces two datasets, a tidy dataset summarizing the results and a master dataset containing the organized data used to calculate the tidy dataset. 
+
+The master dataset(master) combines both the training and test data from the experiments described below. The subjects and activity data were appended to this file, and only those variables that represent mean or standard deviation values in the original file were compiled in the master file. Activity names, rather than numeric representations of the activity, were added to the dataset as well. No adjustments were made to the variable data in the master dataset.
+
+tidym displays the average values for each mean and standard deviation variable by activity and subject and was compiled from the master dataset.
+
+Variables:
+
+Activity- activity performed as measurements were taken. These include laying down (laying), sitting, standing, walking, walking downstairs (walkingdown), and walking upstairs (walkingup).
+
+Subject - refers to the test subject (1-30)
+
+*In the "master" dataset made by the script, there is an additional variable, experiment, which marks whether the experiment was part of the training or experimental set.
+
+The measurement variables in the tidy dataset are the averages of the mean (mean) and standard deviation (std) values for each activity and each subject for the following measurements:
+tBodyAcc-XYZ
+tGravityAcc-XYZ
+tBodyAccJerk-XYZ
+tBodyGyro-XYZ
+tBodyGyroJerk-XYZ
+tBodyAccMag
+tGravityAccMag
+tBodyAccJerkMag
+tBodyGyroMag
+tBodyGyroJerkMag
+fBodyAcc-XYZ
+fBodyAccJerk-XYZ
+fBodyGyro-XYZ
+fBodyAccMag
+fBodyAccJerkMag
+fBodyGyroMag
+fBodyGyroJerkMag
+
+Those listed with "XYZ" have individual measurements in the X, Y, and Z axes.
+Measurements from the phone were collected from the accelerometer (Acc) and the gyroscope (Gyro) Signals from the phone were separated into body (Body) and gravity (Gravity) measurements. linear acceleration and angular velocities were used to calculate Jerk signals (Jerk) and the magnitude of the 3D signals were collected in columns containing (Mag) in the column name. "t" variables were subjected to Fast Fourier Transform for the "f" variables.
+
