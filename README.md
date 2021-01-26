@@ -7,6 +7,7 @@ The script is designed to pull specific data from zipped folder of data relating
 While, in hindsight, this code could have been shortened by flipping around the order of binding the files together and selecting columns, this script does do the job. It compiles and analyzes data from a zipped dataset at https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip. The script should be run using the UCI HAR Dataset file from the zipped file as the working directory. 
 
 Functional chunks of the code are described below.
+The dplyr and data.table packages must be activated prior to running the code.
 ```{r}
 features <- fread("./features.txt")
 x_test <- fread("./test/X_test.txt")
